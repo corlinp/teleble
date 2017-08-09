@@ -3,20 +3,23 @@
 Teleble is a web-based file sharing application. When visiting the homepage, a redirection is made to a user's unique bucket. From that link, a user can manage and share files in his bucket.
 
 
-# Questions
+## Question Responses
 
-* I pretty much implemented what I thought would be a cool, lightweight filesharing website. It (I hope) implements all the features that the prompt wanted.
-* The biggest challenge was getting all the Javascript to work, as I have little experience in JS or Front end dev in general. the implementation of the guest link delete function would probably make a JS developer cry. But it works.
-* The biggest limitation might be the lack of permission-granting to guest links, and the lack of file management options. These would not be too difficult to implement, but I thought I'd keep it simple.
+I pretty much implemented what I thought would be a cool, lightweight filesharing website. It (I hope) implements all the features that the prompt wanted. For file uploads, I used code from https://fineuploader.com/
 
-### Security
+Getting all the Javascript to work was quite a challenge, as I have little experience in JS or Front end dev in general. the implementation of the guest link delete function would probably make a JS developer cry. But it works.
+
+The biggest limitation in the app might be the lack of permission-granting to guest links, and the lack of file management options. These would not be too difficult to implement, but I thought I'd keep it simple. Though I'd probably add an option to name your bucket. Didn't think of that until just now.
+
+## Security
+
 I did put some thought into privacy and security so there are no obvious vulnerabilities I can point out aside from the simple lack of HTTPS. Security / Privacy really relies on the un-guessable nature of Version 4 UUIDs
 
 * For real security we should include HTTPS, third-party and 2-factor authentication
 * FineUploader (the JS file upload library) could have security vulnerabilities, that should be investigated
 
 
-### Scalability
+## Scalability
 The current implementation of Teleble is not scalable beyond a few hundred users. While there shouldn't be any session conflicts, the included default Flask server is not recommended for real deployments (it's just barebones, no HTTPS or rate limiting or anything AFAIK). What we want to do is:
 
 * Run Flask on a real web server like uWSGI and NGINX to act as a load balancer and static file host
