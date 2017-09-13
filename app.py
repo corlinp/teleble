@@ -223,7 +223,6 @@ acceptable_routes = set()
 def index(sid):
     print(guest_routes)
     if sid in guest_routes:
-        print("hdhdhdhdhdhdhdhdhdh")
         return render_guest(guest_routes[sid], sid)
     if sid in acceptable_routes:
         return render_index(sid)
